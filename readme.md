@@ -10,6 +10,43 @@ The VAE network architecture and loss function are faithful reproductions of the
 - **Flexible Data Handling**: Easily handles multiple audio files and corresponding train/test CSV annotations.
 - **Original Architecture**: Uses the exact VAE network from the original AVA paper for proven performance.
 
+## Quick Start: One-Liner Setup
+
+This guide assumes you have Python 3.8+ and `pip` installed.
+
+First, install `uv`, a fast Python package installer:
+```bash
+pip install uv
+```
+
+Now, from your project directory (`simple_ava/`), run the commands for your operating system.
+
+### For macOS & Linux
+
+You can create the environment and install dependencies in one line. Then, activate it with the second line.
+
+```bash
+# 1. Create environment and install all packages
+uv venv && uv pip install -r requirements.txt
+
+# 2. Activate the environment (run this every time you open a new terminal)
+source .venv/bin/activate
+```
+
+### For Windows (Command Prompt)
+
+You can create the environment and install dependencies in one line. Then, activate it with the second line.
+
+```bash
+:: 1. Create environment and install all packages
+uv venv && uv pip install -r requirements.txt
+
+:: 2. Activate the environment (run this every time you open a new terminal)
+.venv\Scripts\activate
+```
+
+Your environment is now ready. You can proceed to the **Workflow & Usage** section.
+
 ## Project Structure
 
 To use this project, your files should be organized as follows:
@@ -39,48 +76,6 @@ simple_ava/
 ├── train.py                # Script to train the VAE model
 └── extract_latents.py      # Script to get latent vectors from a trained model
 ```
-
-## Installation
-
-This project requires Python 3.8 or newer.
-
-We recommend using `uv`, a fast Python package installer. If you don't have it, you can install it easily:
-```bash
-pip install uv
-```
-
-### With `uv` (Recommended)
-
-1.  **Create a virtual environment:**
-    ```bash
-    uv venv
-    ```
-
-2.  **Activate the environment:**
-    - On macOS/Linux: `source .venv/bin/activate`
-    - On Windows: `.venv\Scripts\activate`
-
-3.  **Install dependencies:**
-    ```bash
-    uv pip install -r requirements.txt
-    ```
-
-### With `pip` (Standard)
-
-1.  **Create a virtual environment:**
-    ```bash
-    python -m venv venv
-    ```
-
-2.  **Activate the environment:**
-    - On macOS/Linux: `source venv/bin/activate`
-    - On Windows: `venv\Scripts\activate`
-
-3.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
 
 ## Workflow & Usage
 
@@ -138,8 +133,7 @@ python extract_latents.py \
     --model_path model_checkpoints/checkpoint_100.tar \
     --audio_path data/ZF.wav \
     --onset 0.210 \
-    --offset 0.359
-```
+    --offset 0.359```
 This will print the 32-dimensional latent vector for that specific vocalization to your console.
 
 ## Configuration
